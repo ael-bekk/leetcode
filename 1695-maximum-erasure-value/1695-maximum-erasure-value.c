@@ -7,17 +7,13 @@ int maximumUniqueSubarray(int* nums, int n)
 
     while (++i < n)
         if (!arr[nums[i]])
-        {
             arr[nums[i]] = 1,
             sum += nums[i],
             max = (max > sum) ? max : sum,
             r++;
-        }
         else if (l < r)
-        {
             sum -= nums[l],
             arr[nums[l++]] = 0,
             i--;
-        }
     return (max);
 }
