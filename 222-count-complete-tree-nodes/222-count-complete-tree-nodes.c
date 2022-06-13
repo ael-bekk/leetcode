@@ -18,15 +18,11 @@ int countNodes(struct TreeNode* root)
     while (q || p)
     {
         if (q)
-        {
-            q = q->left;
+            q = q->left,
             l++;
-        }
         if (p)
-        {
-            p = p->right;
+            p = p->right,
             r++;
-        }
     }
     if (l == r)
         return ((1 << l) - 1);
