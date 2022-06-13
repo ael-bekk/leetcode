@@ -3,7 +3,7 @@ int ft_find(char c)
     char rom[8] = "IVXLCDM";
     int nbrs[7] = {1, 5, 10, 50, 100, 500, 1000};
     int i;
-
+ 
     i = 0;
     while (rom[i] && rom[i] != c)
         i++;
