@@ -2,9 +2,13 @@
 
 int getSum(int a, int b)
 {
-    unsigned int and = a & b;
+    unsigned int and;
 
-    if (!a)
-        return (b);
-    return (getSum(and << 1, b^a));
+    while (a)
+    {
+        and = a & b;
+        b = b^a;
+        a = and << 1;
+    }
+    return (b);
 }
