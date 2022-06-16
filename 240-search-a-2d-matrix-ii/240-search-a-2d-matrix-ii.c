@@ -1,22 +1,13 @@
-int bin_s(int* matrix, int l, int r, int target)
+bool searchMatrix(int** matrix, int msize, int* mCsize, int target)
 {
-    int mid;
+    int i = msize - 1, j = 0;
 
-    while (l <= r)
-    {
-        mid = (l + r) / 2;
-        if (matrix[mid] > target)
-            r = mid - 1;
-        else if (matrix[mid] < target)
-            l = mid + 1;
+    while ((i || j < mCsize[i] - 1) && matrix[i][j] != target)
+        if (j < mCsize[i] - 1 && matrix[i][j] < target)
+            j++;
+        else if (i && matrix[i][j] > target)
+            i--;
         else
-            return (true);
-    }
-    return (false);
-}
-
-bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target)
-{
-    while (matrixSize-- && !bin_s(matrix[matrixSize], 0, matrixColSize[matrixSize] - 1, target));
-    return (++matrixSize);
+            break ;
+    return (matrix[i][j] == target);
 }
