@@ -4,10 +4,6 @@ int findPeakElement(int* nums, int numsSize)
 {
     int l = 0, r = numsSize - 1, mid;
 
-    if (numsSize == 1)
-        return (0);
-    if (numsSize == 2)
-        return (nums[1] > nums[0]);
     while (l < r)
     {
         mid = (l + r + 1) / 2;
